@@ -34,6 +34,7 @@ import net.ccbluex.liquidbounce.features.module.modules.movement.fly.modes.verus
 import net.ccbluex.liquidbounce.features.module.modules.movement.fly.modes.vulcan.FlyVulcan277
 import net.ccbluex.liquidbounce.features.module.modules.movement.fly.modes.vulcan.FlyVulcan286
 import net.ccbluex.liquidbounce.features.module.modules.movement.fly.modes.vulcan.FlyVulcan286MC18
+import net.ccbluex.liquidbounce.features.module.modules.movement.fly.modes.vulcan.FlyVulcan286Teleport
 
 /**
  * Fly module
@@ -41,7 +42,7 @@ import net.ccbluex.liquidbounce.features.module.modules.movement.fly.modes.vulca
  * Allows you to fly.
  */
 
-object ModuleFly : Module("Fly", Category.MOVEMENT) {
+object ModuleFly : Module("Fly", Category.MOVEMENT, aliases = arrayOf("Glide", "Jetpack")) {
 
     init {
         enableLock()
@@ -61,6 +62,7 @@ object ModuleFly : Module("Fly", Category.MOVEMENT) {
             FlyVulcan277,
             FlyVulcan286,
             FlyVulcan286MC18,
+            FlyVulcan286Teleport,
             FlyGrim2859V,
             FlySpartan524,
 

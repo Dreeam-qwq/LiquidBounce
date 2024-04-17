@@ -112,7 +112,9 @@ val ALL_EVENT_CLASSES: Array<KClass<out Event>> = arrayOf(
     ProxyCheckResultEvent::class,
     ScaleFactorChangeEvent::class,
     DrawOutlinesEvent::class,
-    OverlayMessageEvent::class
+    OverlayMessageEvent::class,
+    ScheduleInventoryActionEvent::class,
+    SpaceSeperatedNamesChangeEvent::class
 )
 
 /**
