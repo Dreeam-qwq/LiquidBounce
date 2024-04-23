@@ -49,6 +49,7 @@ object ClientSocket {
 
         // Most essential events
         "spaceSeperatedNamesChange",
+        "clickGuiScaleChange",
         "toggleModule",
         "notification",
         "accountManagerMessage",
@@ -91,6 +92,7 @@ object ClientSocket {
         "keyboardChar",
         // "mouseCursor", Not needed
         // "windowResize",
+        "keybindChange"
     )
 
     fun start() {
