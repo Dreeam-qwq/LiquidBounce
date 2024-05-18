@@ -141,6 +141,7 @@ object ModuleManager : Listenable, Iterable<Module> by modules {
             ModuleServerCrasher,
             ModuleClickTp,
             ModuleConsoleSpammer,
+            ModuleTranslationFix,
 
             // Fun
             ModuleDankBobbing,
@@ -236,6 +237,7 @@ object ModuleManager : Listenable, Iterable<Module> by modules {
             ModuleCombineMobs,
             ModuleAutoF5,
             ModuleChams,
+            ModuleBedPlates,
 
             // ModuleNametags,
             ModuleNoBob,
@@ -322,7 +324,22 @@ object ModuleManager : Listenable, Iterable<Module> by modules {
     }
 
     fun autoComplete(begin: String, args: List<String>, validator: (Module) -> Boolean = { true }): List<String> {
-        return filter { it.name.startsWith(begin, true) && validator(it) }.map { it.name }
+        val parts = begin.split(",")
+        val matchingPrefix = parts.last()
+        val resultPrefix = parts.dropLast(1).joinToString(",") + ","
+        return filter { it.name.startsWith(matchingPrefix, true) && validator(it) }
+            .map {
+                if (parts.size == 1) {
+                    it.name
+                } else {
+                    resultPrefix + it.name
+                }
+            }
+    }
+
+    fun parseModulesFromParameter(name: String?): List<Module> {
+        if (name == null) return emptyList()
+        return name.split(",").mapNotNull { getModuleByName(it) }
     }
 
     /**
